@@ -1,8 +1,14 @@
-import Login  from "./auth/Login"
+import Dashboard  from "./components/auth/Dashboard"
+import Login from "./components/auth/Login"
+import{Route,BrowserRouter as Router} from "react-router-dom"
 
-function App() {
+function App(props) {
   return (
-    <Login/>
+    <Router>
+    <Route strict exact component={Dashboard} path="/dashboard" history={props.history}></Route>
+    <Route strict exact component={Login} path="/login" history={props.history}></Route>
+  
+    </Router>
   );
 }
 
