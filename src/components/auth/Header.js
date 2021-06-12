@@ -4,22 +4,24 @@ import clsx from 'clsx';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import MoreIcon from '@material-ui/icons/MoreVert';
+import MenuIcon from '@material-ui/icons/Menu';
 import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
+import AppleIcon from '@material-ui/icons/Apple';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
+import TransformIcon from '@material-ui/icons/Transform';
 import SearchIcon from '@material-ui/icons/Search';
-import MailIcon from '@material-ui/icons/Mail';
-import MoreIcon from '@material-ui/icons/MoreVert';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import Avatar from '@material-ui/core/Avatar';
+import Paper from '@material-ui/core/paper';
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -137,24 +139,68 @@ export default function PrimarySearchAppBar() {
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
         >
-          <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List>
-        </div>
+         
+         <Paper style={{fontSize:20,fontWeight:600,letterSpacing:1,display:'flex',justifyContent:'center',padding:10,marginBottom:5}}>
+            Dashboard
+
+          </Paper> 
+          <div style={{display:'flex',flexDirection:'column', justifyContent:'center',alignItems:'center',marginTop:20,padding:3}}> 
+          <img src="logo.jpg" width="45" height="45"/>
+          <span>User Profile</span>
+          </div>
+          <List component="nav" aria-label="main mailbox folders" >
+        <ListItem style={{marginTop:30}}> 
+          <ListItemIcon>
+            <AppleIcon/>
+          </ListItemIcon>
+          <ListItemText>
+        Dashboard
+        </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <AccountCircleIcon />
+          </ListItemIcon>
+          <ListItemText>
+        Leads
+        </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <MailOutlineIcon />
+          </ListItemIcon>
+          <ListItemText>
+        Email
+        </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <PowerSettingsNewIcon/>
+          </ListItemIcon>
+          <ListItemText>
+      Form Submission
+      </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <TransformIcon/>
+          </ListItemIcon>
+          <ListItemText>
+        Page Views
+      </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <SettingsApplicationsIcon/>
+          </ListItemIcon>
+          <ListItemText>
+        Reports
+    </ListItemText>
+        </ListItem>
+       </List>  
+         </div>
+         
+      
       );
   
     const menuId = 'primary-search-account-menu';
@@ -243,7 +289,7 @@ export default function PrimarySearchAppBar() {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-               <Avatar style={{marginRight:20}} alt="Travis Howard" src="/user.jpg/" />
+               <img src="logo.jpg" width="40" height="40"/>
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>
